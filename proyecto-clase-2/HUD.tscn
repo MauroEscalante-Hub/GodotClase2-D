@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqp0stvdfavo3"]
 
 [ext_resource type="Texture2D" uid="uid://chs5br5ig7kyy" path="res://art/playerGrey_up1.png" id="1_ne771"]
+[ext_resource type="Script" uid="uid://bbhcv7y66m8hl" path="res://player.gd" id="1_xxqia"]
 [ext_resource type="Texture2D" uid="uid://dy1gpynhjhea7" path="res://art/playerGrey_up2.png" id="2_xxqia"]
 [ext_resource type="Texture2D" uid="uid://cpsdhfclw5iyn" path="res://art/playerGrey_walk1.png" id="3_gv1iq"]
 [ext_resource type="Texture2D" uid="uid://b22d7n320vjpo" path="res://art/playerGrey_walk2.png" id="4_1and6"]
@@ -37,6 +38,8 @@ height = 70.0
 [node name="Hud" type="Node2D" unique_id=858368032]
 
 [node name="Player" type="Area2D" parent="." unique_id=1904770059]
+position = Vector2(53, 35)
+script = ExtResource("1_xxqia")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1146281847]
@@ -46,3 +49,5 @@ animation = &"arriba"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=400625793]
 shape = SubResource("CapsuleShape2D_n0ylh")
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
